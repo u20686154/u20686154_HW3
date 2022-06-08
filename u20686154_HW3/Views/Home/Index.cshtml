@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+ <h2>My Media</h2>
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Description</h2>
+            <p>
+                A System that Allows you to  upload , Video ,Images and Document into different pages relevant to specifed file type on the selection option you chose.
+                The files that were loaded on to the server can be downloaded and deleted , Video and Images have a special function which allows you to view them on the webpage without manually downloading
+                them.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Option Selection </h2>
+           
+            <div class="well-sm">
+                <div class="form-horizontal">
+                    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+                   
+                    
+                    {
+
+                    <div>Document<input type="radio" name="fileSelection" value="Document" /></div>
+                        <div>Image<input type="radio" name="fileSelection" value="Image" /></div>
+                        <div>Video<input type="radio" name="fileSelection" value="Video" /></div>
+                        <div><input type="file" name="files" /></div>
+                        <br />
+                        <div><input type="submit" value="Upload" /></div>
+                    }
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
+</div>

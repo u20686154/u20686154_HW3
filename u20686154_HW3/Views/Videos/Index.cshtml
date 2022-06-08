@@ -1,0 +1,46 @@
+﻿@model IEnumerable<u20686154_HW3.Models.FileModel>
+
+<h2> Videos</h2>
+<div class="container">
+    @foreach (var item in Model)
+    {
+
+        <div class="col-md-4">
+            <div class="gallery">
+                <a href="~/Media/Videos/@item.FileName" fa>
+                    <video controls>
+                        <source src="~/Media/Videos/@item.FileName" type="video/mp4">
+                    </video>
+
+
+                </a>
+
+            </div>
+
+            
+            <div> @Html.DisplayFor(modelItem => item.FileName)</div>
+            <div>
+                <a class=" btn btn-success" href="@Url.Action("DownloadFile",new { fileName = item.FileName })">Download</a>
+                <a class=" btn btn-danger" href="@Url.Action("DeleteFile",new { fileName = item.FileName })">Delete</a>
+                
+               
+            </div>
+
+        </div>
+
+    }
+</div>
+<style>
+    video {
+        height: 300px;
+        width: 200px
+
+    }
+</style>
+
+<script>
+$(document).ready(function() {
+  $(".gallery a").fancybox();
+});
+</script>
+

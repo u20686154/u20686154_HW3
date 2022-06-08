@@ -1,0 +1,46 @@
+﻿@model IEnumerable<u20686154_HW3.Models.FileModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Images</h2>
+
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+
+            <div class="col-md-4">
+                <div class="gallery">
+                    <a href="~/Media/Images/@item.FileName" fa>
+                        <img src="~/Media/Images/@item.FileName" />
+                    </a>
+                </div>
+
+                <div> @Html.DisplayFor(modelItem => item.FileName)</div>
+                <div>
+                    <a class=" btn btn-success" href="@Url.Action("DownloadFile",new { fileName = item.FileName })">Download</a>
+                    <a class=" btn btn-danger" href="@Url.Action("DeleteFile",new { fileName = item.FileName })">Delete</a>
+                </div>
+
+            </div>
+
+        }
+    </div>
+    </div>
+
+
+<style>
+    img{
+        height: 200px;
+        width :200px
+    }
+</style>
+<script>
+$(document).ready(function() {
+  $(".gallery a").fancybox();
+});
+</script>
+
